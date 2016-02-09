@@ -1,0 +1,102 @@
+
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+     
+    	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+    	<title>DILDO</title>
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+       	<style type="text/css">
+            html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption {
+                margin: 0;
+                padding: 0;
+                border: 0;
+                outline: 0;
+                font-size: 100%;
+                vertical-align: baseline;
+                background: transparent;
+                height: 100%;
+                width: 100%;
+            }
+            
+            #uranus {
+                background-color: black;                
+				margin: 0 auto;
+                color: turquoise;
+                font-size: 24px;
+                font-family: 'Arial';
+                z-index: 22;
+                text-align: center;
+            }
+
+			#master {
+				width: 100%;
+				height: 100%;
+				background-color: black;
+				color: turquoise;
+				display: flex;
+				flex-direction: column;
+			}
+
+			#inputerino{
+
+            	padding-top: 30px;
+				height: 150px;
+				text-align: center;
+			}
+            input[type=text] {
+			    padding:5px; 
+			    border:2px solid turquoise;
+			    border-radius: 5px;
+			    color: turquoise;
+			    background-color: black;
+			}
+
+			input[type=text]:focus {
+			    border-color: turquoise;
+			    color: turquoise;
+			    background-color: black;
+			}
+                      
+    	</style>
+    </head>
+
+    <body>
+    <div id = "frame">
+	    <div id = "master">      
+	      <div id = "inputerino">
+			  <input type="text" id="input1"/>
+				<button onclick="input()"></button>
+				<script>
+	    			function input(){
+	    				var name, num, points, kills, deaths, assists, cs, triples, quadras, pentas, bonus;
+					    name = document.getElementById('input1').value;
+	    				$.get( "https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/" + name + "?api_key=9711424b-5f94-499b-95b9-68d503c6dcb0", function( data ) {
+	    					num = data[name].id;
+	    					$.get("https://na.api.pvp.net/api/lol/na/v1.3/game/by-summoner/" + num + "/recent?api_key=9711424b-5f94-499b-95b9-68d503c6dcb0", function ( data2 ){				
+			    					kills = data2.games[0].stats.championsKilled || 0;
+			    					deaths = data2.games[0].stats.numDeaths || 0;
+			    					assists = data2.games[0].stats.assists || 0;
+			    					cs = data2.games[0].stats.minionsKilled || 0;		    					
+			    					pentas = data2.games[0].stats.pentaKills || 0;		    					
+			    					quadras = (data2.games[0].stats.quadraKills || 0) - pentas;		    					
+			    					triples = (data2.games[0].stats.tripleKills || 0) - quadras - pentas;
+			    					if ((assists + kills) > 9){
+			    						bonus = 1;
+			    					}else{
+			    						bonus = 0;
+			    					}
+			    					points = 2 * kills - 0.5 * deaths + 1.5 * assists + 0.01 * cs + 2* triples + 5 * quadras + 10 * pentas + 2 * bonus;
+			    					$("#uranus").html('<span style="color:red; font-size: 30px;">' + name + '</span></br>kills: <span style="color:white">' + kills + '</span><br> deaths: <span style="color:white">' + deaths + '</span><br> assists: <span style="color:white">' + assists + '</span><br> cs: <span style="color:white">' + cs + '</span><br> triples: <span style="color:white">' + triples + '</span><br> quadras: <span style="color:white">' + quadras + '</span><br> pentas: <span style="color:white">' + pentas + '</span><br> bonus: <span style="color:white">' + bonus + '</span><br> total fantasy points: <span style="color:white">' + points + '</span>');
+			    					console.log(data2);
+	    					});
+						});
+					};
+	    	    
+	    	</script>
+		  </div>
+		  <div id = "uranus"> you are a trashcan. enter your name to load your trashcan stats. </div>
+     	</div>
+     </div>
+    </body>
+</html>
