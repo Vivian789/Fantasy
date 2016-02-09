@@ -111,7 +111,7 @@
 				    					pentas[i] = data2.games[i].stats.pentaKills || 0;		    					
 				    					quadras[i] = (data2.games[i].stats.quadraKills || 0) - pentas[i];		   					
 				    					triples[i] = (data2.games[i].stats.tripleKills || 0) - quadras[i] - pentas[i];
-				    					if ((assists[i] + kills[i]) > 9){
+				    					if (assists[i] > 9 || kills[i]> 9 ){
 				    						bonus[i] = 1;
 				    					}else{
 				    						bonus[i] = 0;
