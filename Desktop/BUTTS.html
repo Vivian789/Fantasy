@@ -112,11 +112,11 @@
 				    					quadras[i] = (data2.games[i].stats.quadraKills || 0) - pentas[i];		   					
 				    					triples[i] = (data2.games[i].stats.tripleKills || 0) - quadras[i] - pentas[i];
 				    					if (assists[i] > 9 || kills[i]> 9 ){
-				    						bonus[i] = 1;
+				    						bonus[i] = 2;
 				    					}else{
 				    						bonus[i] = 0;
 				    					}
-				    					points[i] = 2 * kills[i] - 0.5 * deaths[i] + 1.5 * assists[i] + 0.01 * cs[i] + 2* triples[i] + 5 * quadras[i] + 10 * pentas[i] + 2 * bonus[i];
+				    					points[i] = 2 * kills[i] - 0.5 * deaths[i] + 1.5 * assists[i] + 0.01 * cs[i] + 2* triples[i] + 5 * quadras[i] + 10 * pentas[i] + bonus[i];
 				    					points[i] = parseFloat(points[i]).toFixed(2);
 				    					$(".chart").append("<div class='item'>" + "<span style = 'color:red'>" + (i + 1) + "</span></div>");
 				    					$(".chart").append("<div class='item'>" + kills[i] + "</div>");
