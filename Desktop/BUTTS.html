@@ -97,9 +97,9 @@
 	    				var name, num, points= [], kills= [], deaths= [], assists= [], cs= [], triples= [], quadras= [], pentas= [], bonus= [];
 					    name = document.getElementById('input1').value;
 					    name = name.replace(/\s/g, '').toLowerCase();
-	    				$.get( "https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/" + name + "?api_key=9711424b-5f94-499b-95b9-68d503c6dcb0", function( data ) {
+	    				$.get( "https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/" + name + "?api_key={apiKey}", function( data ) {
 	    					num = data[name].id;
-	    					$.get("https://na.api.pvp.net/api/lol/na/v1.3/game/by-summoner/" + num + "/recent?api_key=9711424b-5f94-499b-95b9-68d503c6dcb0", function ( data2 ){
+	    					$.get("https://na.api.pvp.net/api/lol/na/v1.3/game/by-summoner/" + num + "/recent?api_key={apiKey}", function ( data2 ){
 	    							$(".chart").html("");
 	    							$(".chart").append(
 								  		"<div class = 'item'><span style = 'color:red'>Game</span></div><div class = 'item'><span style = 'color:white'>Kills</span></div><div class = 'item'><span style = 'color:white'>Deaths</span></div><div class = 'item'><span style = 'color:white'>Assists</span></div><div class = 'item'><span style = 'color:white'>CS</span></div><div class = 'item'><span style = 'color:white'>Triples</span></div><div class = 'item'><span style = 'color:white'>Quadras</span></div><div class = 'item'><span style = 'color:white'>Pentas</span></div><div class = 'item'><span style = 'color:white'>Bonus</span></div><div class = 'item'><span style = 'color:red'>Total</span></div>");			
