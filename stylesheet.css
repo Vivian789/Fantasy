@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+.App {
+  text-align: center;
+  line-height: 1.5;
+  color: #332;
+  background: #eeefff;
+  height: 100vh;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  letter-spacing: 0.05em;
+}
+
+/*
+***************
+HEADER COMPONENTS
+***************
+*/
+
+.App-logo {
+  animation: spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background: linear-gradient(#068, #088);
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+@keyframes spin {
+  from { transform: rotate(-35deg); }
+  50%  { transform: rotate(35deg); }
+  to { transform: rotate(-35deg); }
+}
+
+
+/*
+***************
+MAIN COMPONENTS
+***************
+*/
+
+.Main{
+  display:flex;
+}
+
+.Sidebar{
+  flex: 1;
+  margin: 10px;
+}
+
+/*
+***************
+SUMMONER DISPLAY
+***************
+*/
+
+.Summoner-display{
+  margin: 10px;
+  padding: 10px;
+  flex: 3;
+  display:flex;
+  flex-direction: column;
+  box-shadow: 2px 0px 6px rgba(0,0,0,0.2);
+  border-radius: 3px;
+  border: 1px solid rgba(0,0,0,0.2);
+}
+
+.Display-name{
+  display: block;
+  font-weight: bold;
+  color: #444;
+  font-size: 2em;
+  padding: 3px;
+  background-color: rgba(0,136,136,0.2);
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+  border-radius: 3px 3px 0px 0px; 
+}
+
+.Display-categories{
+  display: flex;
+  flex-direction: row;
+  padding: 3px;
+  border-bottom: 2px solid #bbb;
+  color: #777;
+}
+
+.Display-chart-row{
+  display: flex;
+  flex-flow: row;
+  padding: 3px;
+  border-bottom: 1px solid #eee;
+}
+
+.Display-chart-row:nth-child(even){
+
+  background-color: #dff;
+}
+
+.Display-chart-row:nth-child(odd){
+  background-color: #eee;
+}
+
+.Statistic-item{
+  padding: 3px;
+  flex: 1;
+}
+
+/*
+***************
+PLAYER DISPLAY
+***************
+*/
+
+.Player-list{
+  display: flex;
+  flex-flow: column;
+  padding: 10px;
+  box-shadow: 0px 0px 4px rgba(0,0,0,0.2);
+  border-radius: 2px;
+  border: 1px solid rgba(0,0,0,0.2);
+}
+
+.Player-list-title{
+  font-size: 1.3em;
+  border-bottom: 2px solid #ddd;
+}
+
+.Player{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+  padding: 5px;
+}
+
+.Player:nth-child(even){
+  background-color: #dff;
+}
+
+.Player:nth-child(odd){
+  background-color: #eee;
+}
+
+.Player-name{
+  font-weight: bold;
+}
+
+/*
+***************
+PLAYER FORM
+***************
+*/
+
+.Add-player-form{
+  margin: 10px;
+}
+
+input, button{
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  border-radius: 1px;
+  border: 1px solid rgba(0,0,0,0.1);
+  padding: 5px;
+  box-shadow: 2px 0px 4px #ddd;
+}
+
+button{
+  margin: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background: #bdf;
+}
+
+input:focus, button:focus { 
+    outline: none; 
+    border: 1px solid #5dd;
+}
+
+input[type="submit"]{
+  background: none;
+  color: #333;
+}
